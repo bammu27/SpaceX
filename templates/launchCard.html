@@ -1,0 +1,23 @@
+{% macro render_launch(launch) %}
+<div class="launch-card">
+    <div class="mission-img" >
+    <img src="{{ launch.links.patch.large}}" alt="{{ launch.name }}" width="100" height="150" />
+    </div>
+    <div class="launch-details">
+        <h2>{{ launch.name }}</h2>
+        <p class="launch-date">{{ launch.date_utc }}</p>
+        <div class="launch-buttons">
+            {% if launch.links.webcast %}
+                <a href="{{ launch.links.webcast }}" class="btn btn-primary mt-2" target="_blank">Watch on Youtube</a>
+            {% else %}
+                <span class="btn btn-primary disabled  mt-2">No Webcast</span>
+            {% endif %}
+            {% if launch.links.wikipedia %}
+                <a href="{{ launch.links.wikipedia }}" class="btn btn-info  mt-2" target="_blank">Wikipedia</a>
+            {% else %}
+                <span class="btn btn-info disabled  mt-2">No Wikipedia Link</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endmacro %}
